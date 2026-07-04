@@ -1,0 +1,30 @@
+\begin{table}[t]
+  \centering
+  \scriptsize
+  \setlength{\tabcolsep}{3pt}
+  \caption{K3s worker-service stress diagnostics. CPU-hog injects best-effort co-located interference; cancel-ack delays worker cancellation acknowledgments. Gains are relative to static sparse-flexible placement within the same case and worker count.}
+  \label{tab:k8s-stress}
+  \begin{tabular}{@{}llrrrrrr@{}}
+    \toprule
+    Case & W & Policy & Barrier & Gain & Worker err. & Recov. & Cancel \\
+         &   &        & (ms) &      & (/round) & (/round) & (ms) \\
+    \midrule
+    baseline & 24 & Static sparse-flex & 16.6 & 0.0\% & 0.00 & 0.00 & 5.7 \\
+    baseline & 24 & Rank-aware & 15.5 & 6.2\% & 0.00 & 0.00 & 5.7 \\
+    baseline & 24 & Guarded portfolio & 12.6 & 23.7\% & 0.00 & 0.00 & 4.4 \\
+    baseline & 24 & Guarded deadline-aware & 16.6 & -0.3\% & 0.00 & 0.00 & 5.6 \\
+    cancel\_ack\_20ms & 24 & Static sparse-flex & 33.7 & 0.0\% & 0.00 & 0.00 & 24.8 \\
+    cancel\_ack\_20ms & 24 & Rank-aware & 32.7 & 3.1\% & 0.00 & 0.00 & 24.7 \\
+    cancel\_ack\_20ms & 24 & Guarded portfolio & 32.0 & 5.1\% & 0.00 & 0.00 & 23.6 \\
+    cancel\_ack\_20ms & 24 & Guarded deadline-aware & 33.9 & -0.7\% & 0.00 & 0.00 & 24.7 \\
+    close\_connection & 24 & Static sparse-flex & 16.7 & 0.0\% & 1.00 & 0.00 & 5.5 \\
+    close\_connection & 24 & Rank-aware & 15.6 & 6.1\% & 1.00 & 0.00 & 5.5 \\
+    close\_connection & 24 & Guarded portfolio & 10.8 & 35.0\% & 1.00 & 0.00 & 2.8 \\
+    close\_connection & 24 & Guarded deadline-aware & 16.6 & 0.1\% & 1.00 & 0.00 & 5.5 \\
+    cpu\_hog & 24 & Static sparse-flex & 16.6 & 0.0\% & 0.00 & 0.00 & 5.6 \\
+    cpu\_hog & 24 & Rank-aware & 15.6 & 6.0\% & 0.00 & 0.00 & 5.6 \\
+    cpu\_hog & 24 & Guarded portfolio & 12.5 & 24.8\% & 0.00 & 0.00 & 4.3 \\
+    cpu\_hog & 24 & Guarded deadline-aware & 16.5 & 0.6\% & 0.00 & 0.00 & 5.5 \\
+    \bottomrule
+  \end{tabular}
+\end{table}

@@ -1,0 +1,112 @@
+\section{Introduction}
+
+Cloud platforms increasingly run distributed learning jobs on heterogeneous
+and shared clusters.  Worker speeds, queueing delays, network variability, and
+co-located interference create long-tail iteration times.  Tail-at-scale
+analysis showed that a small fraction of slow components can dominate service
+latency~\cite{dean2013tail}.  Cluster systems turned the same observation into
+runtime mechanisms: speculative execution mitigates slow MapReduce tasks
+\cite{zaharia2008late}, Mantri diagnoses and reacts to outliers in
+MapReduce clusters~\cite{ananthanarayanan2010mantri}, and Dolly uses cloning to
+reduce straggler impact~\cite{ananthanarayanan2013dolly}.  These systems
+established a useful design principle: the scheduler should optimize the unit
+that actually gates completion, not just the average work issued to the
+cluster.  For synchronous distributed learning, that gate is revisited at every
+iteration, so even modest worker-speed mismatch can repeatedly become a
+barrier-latency problem.
+
+Modern ML cluster schedulers apply this principle at the job and training-stack
+layers.  Optimus models the marginal value of resources for distributed deep
+learning jobs~\cite{peng2018optimus}.  Gandiva exploits introspection to
+time-slice and pack deep learning workloads~\cite{xiao2018gandiva}.  Tiresias
+schedules GPU jobs with learned job progress information~\cite{gu2019tiresias}.
+Themis studies fair and efficient GPU sharing~\cite{mahajan2020themis}.  Gavel
+makes heterogeneity an explicit cluster-scheduling dimension
+\cite{narayanan2020gavel}.  Pollux co-adapts training batch size and cluster
+allocation for goodput~\cite{qiao2021pollux}.  Sia extends goodput
+optimization to heterogeneous ML clusters~\cite{subramanya2023sia}.  Recent
+systems continue the same trajectory: RLTune combines learned prioritization
+with solver-based allocation~\cite{dongare2025rltune}; Cuckoo optimizes
+deadline-aware GPU job packing~\cite{zhang2025cuckoo}; Sailor automates
+distributed training over dynamic heterogeneous clusters~\cite{strati2025sailor};
+What-if analysis diagnoses training stragglers~\cite{lin2025whatifstragglers};
+Holmes localizes irregularities in large GPU fleets~\cite{yao2025holmes};
+Minder detects faulty machines during large-scale training~\cite{deng2025minder};
+GREYHOUND targets fail-slow behavior in hybrid-parallel training
+\cite{wu2025greyhound}; and Zeppelin balances variable-length LLM training
+work~\cite{chen2026zeppelin}.  The common abstraction in these systems is that
+heterogeneity is managed through job priority, resource allocation, packing,
+placement, or diagnosis.  That abstraction is powerful, but it does not expose
+the algebraic dependency among encoded rows inside a coded iteration.
+
+Coded computing changes the completion condition of an iteration.  Gradient
+coding uses algebraic redundancy so that a master can recover a full gradient
+without waiting for every worker~\cite{tandon2017gradient}.  Short-Dot reduces
+the cost of coded linear transforms through sparse coded products
+\cite{dutta2016shortdot}.  Coded distributed learning generalizes this idea to
+machine-learning iterations~\cite{lee2018speeding}.  Sparse coded matrix
+multiplication further reduces coded-linear-algebra overhead
+\cite{wang2018codedsparse}.  Approximate gradient coding studies heterogeneous
+stragglers under relaxed recovery~\cite{song2025approxgc}.  Sparse flexible
+coded learning (SFCL) creates the closest exact baseline for this paper: a
+fixed sparse-flexible code matrix with multiple legal recovery
+paths~\cite{zhang2025sparseflexible}.
+These constructions move the barrier from ``all assigned work is complete'' to
+``some algebraically sufficient row set is complete.''  This shift creates a
+runtime question that code construction alone does not answer: among many legal
+recovery paths, which one will become visible first under the current worker
+speeds, dispatch delays, cancellation behavior, and sparse row costs.
+
+The resulting scheduling problem is neither ordinary load balancing nor
+general cluster placement.  In sparse flexible coded learning, the code defines
+a row-span family rather than a single required worker set
+\cite{zhang2025sparseflexible}.  An encoded row is useful only when it arrives
+with other completed rows whose span contains the target gradient.  A
+cost-balanced runtime can therefore place expensive sparse rows on fast workers
+and still delay the first decodable row set, because row cost and row
+decodability measure different things.  A generic heterogeneity-aware runtime
+can also miss the same signal: cluster schedulers such as Gavel expose
+heterogeneity as a job-to-resource placement problem~\cite{narayanan2020gavel},
+whereas coded learning needs a row-prefix objective inside one iteration.  This
+observation gives the background for our method.  The scheduler should preserve
+the fixed
+sparse-flexible code, predict how a candidate assignment changes the
+first-decodable prefix, and enable adaptation only when the predicted prefix
+reduction is large enough to pay for scheduling, extra-work, communication, and
+cancellation overhead.
+
+We present \textsc{G-port}, a guarded worker-service controller for sparse
+flexible coded learning.  Its coded arm assigns a target-specific importance
+score to encoded rows, aggregates scores over row pairs, maps decode-critical
+pairs to workers predicted to finish early, and runs the same row-span test as
+the decoder to predict the first-decodable prefix.  A fixed online guard enables
+the adaptive arm only when worker-speed mismatch, predicted first-decode gain,
+prefix growth, and rows-after-decode counters pass; otherwise \textsc{G-port}
+falls back to static sparse-flexible placement.  The design keeps the
+sparse-flexible code fixed and focuses on the worker-service runtime that
+controls row exposure order.  Coded-only and alternative-fallback variants are
+treated as ablations, not separate proposed systems.
+
+The paper makes four contributions.
+
+\begin{itemize}
+  \item We identify first-decodable row exposure as a systems objective for
+  sparse flexible coded learning.  The objective asks the runtime to expose an
+  algebraically sufficient row prefix early, while leaving the code
+  construction and decoder unchanged.
+  \item We design \textsc{G-port}, a guarded worker-service controller with
+  decode-aware row scores, finish-time estimates, first-prefix prediction, and
+  static sparse-flexible fallback.  A fixed online guard enables the adaptive
+  coded arm only when the predicted prefix reduction is worth its runtime cost.
+  \item We specify the deployment semantics that make the design safe to use:
+  reassignment changes row-to-worker order but not the recoverable row-span
+  family, decoding is accepted only by the exact row-span test, and guard
+  decisions are made before each iteration rather than after observing the
+  outcome.
+  \item We evaluate the design against scheduler-style baselines using
+  trace-driven simulation and worker-service prototypes, including a direct
+  three-node K3s deployment.  Across the main TCP, network-stressed TCP, and
+  K3s worker-service comparisons, \textsc{G-port} remains positive at all tested
+  worker counts; its bounded reissue path restores decode success under a
+  single worker-close stress.
+\end{itemize}

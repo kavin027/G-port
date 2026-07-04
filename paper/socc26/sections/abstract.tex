@@ -1,0 +1,21 @@
+\begin{abstract}
+Heterogeneous cloud workers make synchronous distributed learning vulnerable to
+long-tail iteration latency.  Sparse flexible codes reduce redundant work, but
+they still leave a systems question open: which recoverable row set becomes
+visible first at runtime.  We present \textsc{G-port}, a guarded worker-service
+controller whose coded arm keeps the sparse-flexible code fixed while changing
+the runtime order in which recoverable row sets are exposed.  It combines
+target-specific row scores, worker speed and delay estimates, deadline-aware
+matching, exact online decodability checks, and a fixed guard that enables the
+adaptive arm only when predicted prefix savings exceed overhead; otherwise it
+falls back to static sparse-flexible placement.  We evaluate \textsc{G-port}
+with trace-driven simulation and worker-service
+prototypes, including TCP, network-stressed TCP, and a direct three-node K3s
+deployment.  Across the worker-service evaluation, \textsc{G-port} improves
+barrier latency by up to 24.8\% in deployed K3s stress tests, remains positive
+across all main TCP, network-stressed TCP, and K3s scale points, and maintains
+bounded recovery under communication, interference, cancellation, and
+worker-close stress.  These
+results show that row-exposure order is a practical scheduling lever inside
+fixed coded-computing deployments.
+\end{abstract}

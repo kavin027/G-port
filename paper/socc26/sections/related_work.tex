@@ -1,0 +1,63 @@
+\section{Related Work}
+
+\textbf{Coded computation and gradient coding.}
+Coded computation uses algebraic redundancy to ignore delayed workers in linear
+transforms~\cite{lee2018speeding} and gradients~\cite{tandon2017gradient}.
+Short-Dot~\cite{dutta2016shortdot} and coded sparse matrix
+multiplication~\cite{wang2018codedsparse} reduce sparse coded-linear-algebra
+overhead, and approximate gradient coding further trades exactness for
+communication and recovery cost~\cite{song2025approxgc}.  These works decide
+what redundancy to create, how many workers are needed, or how expensive
+decoding is once results arrive.  Our problem is different: the sparse-flexible
+code matrix is fixed before a round starts, and the runtime controls which
+legal rows become visible to the decoder first.  This separates code
+construction from code-aware row exposure.
+
+\textbf{Sparse and flexible coded learning.}
+Zhang, He, and Dai~\cite{zhang2025sparseflexible} propose the closest baseline:
+a sparse flexible code whose valid recovery combinations make placement matter.
+Two assignments can have the same recovery capability but different first-decode
+times because the decoder observes rows in the order induced by worker speeds
+and row assignments.  Static sparse-flexible placement therefore provides the
+recoverable row-span family, while our scheduler changes only the runtime
+mapping from row-pairs to workers.  The exact decoder remains the correctness
+test; scheduling affects latency by reducing the prefix that is likely to be
+decodable, not by changing the algebraic code.
+
+\textbf{Cluster scheduling for heterogeneous ML.}
+Large-scale ML schedulers attack heterogeneity at the job, GPU, or cluster
+allocation layer.  Optimus~\cite{peng2018optimus}, Gandiva~\cite{xiao2018gandiva},
+Tiresias~\cite{gu2019tiresias}, Themis~\cite{mahajan2020themis},
+Gavel~\cite{narayanan2020gavel}, Pollux~\cite{qiao2021pollux}, and
+Sia~\cite{subramanya2023sia} optimize placement, fairness, migration, or
+resource scaling for distributed training jobs.  RLTune~\cite{dongare2025rltune}
+and Cuckoo~\cite{zhang2025cuckoo} continue this line with recent scheduling
+policies for heterogeneous cloud and GPU-cluster workloads.  These systems
+choose where and when jobs or training tasks run.  G-PORT works at a lower
+granularity inside one coded-learning iteration: it assumes the worker pool and
+code matrix are given, then orders encoded row exposure so that the first
+recoverable prefix arrives earlier.
+
+\textbf{Dynamic training runtimes and fail-slow diagnosis.}
+Recent ML-systems work also adapts to runtime variation within a job.
+Sailor~\cite{strati2025sailor} targets dynamic heterogeneous training, while
+Zeppelin~\cite{chen2026zeppelin} balances variable-length LLM training work.
+Complementary diagnostic systems and analyses characterize stragglers and
+fail-slow behavior, including What-if analysis~\cite{lin2025whatifstragglers},
+Holmes~\cite{yao2025holmes}, Minder~\cite{deng2025minder}, and
+GREYHOUND~\cite{wu2025greyhound}.  Their main unit is a job, task, replica, or
+observed failure mode.  Our unit is an encoded row-pair whose usefulness is
+coupled through the code matrix.  This coupling is why a speed-only or
+cost-only priority can improve local work time but still expose a late
+decodable prefix.
+
+\textbf{Classic straggler mitigation.}
+Cloud systems have long used tail-tolerant services~\cite{dean2013tail},
+speculation~\cite{zaharia2008late}, outlier management~\cite{ananthanarayanan2010mantri},
+and cloning~\cite{ananthanarayanan2013dolly} to mask slow tasks.  These
+mechanisms treat completed task outputs as independently useful and often pay
+extra work to reduce tail latency.  Sparse-flexible coded learning changes the
+runtime objective: the master can stop only when the completed encoded rows
+span a valid recovery set.  G-PORT therefore complements speculation and
+cluster-level scheduling by making the redundancy already present in the code
+more visible to the decoder before adding more work.

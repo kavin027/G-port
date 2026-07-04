@@ -1,0 +1,12 @@
+external_mode,strategy,selected_arm,rounds,round_fraction,method,source,artifact,uses_first_decode_features,notes
+network_stress,original_sfcl_static,fixed,192,1.0,Original-SFCL,Sparse-flexible coded learning,same-runtime reimplementation,No,static sparse-flexible placement
+network_stress,rltune_style_selector,spec,71,0.3697916666666667,RLTune-style,SoCC'25 RLTune,public artifact; runtime adaptation,Indirect,"portfolio over uncoded, replicated, static-coded, and rank-coded arms"
+network_stress,rltune_style_selector,speed,106,0.5520833333333334,RLTune-style,SoCC'25 RLTune,public artifact; runtime adaptation,Indirect,"portfolio over uncoded, replicated, static-coded, and rank-coded arms"
+network_stress,sailor_style_heterogeneity_aware,speed,192,1.0,Sailor-style,SOSP'25 Sailor,public artifact; runtime adaptation,No,heterogeneity-aware throughput and load model
+network_stress,guarded_system_portfolio,best_safe-uncoded,138,0.71875,Guarded portfolio,this paper,ours,Guarded,online guard over a system portfolio
+network_stress,online_counter_guard_deadline_aware_sparse_flexible,enable,44,0.22916666666666666,Guard-D,this paper,ours,Guarded,coded-only guard; static sparse-flexible fallback
+network_stress,online_counter_guard_deadline_aware_sparse_flexible,fallback,148,0.7708333333333334,Guard-D,this paper,ours,Guarded,coded-only guard; static sparse-flexible fallback
+network_stress,rltune_style_selector,rank,7,0.036458333333333336,RLTune-style,SoCC'25 RLTune,public artifact; runtime adaptation,Indirect,"portfolio over uncoded, replicated, static-coded, and rank-coded arms"
+network_stress,rltune_style_selector,original,8,0.041666666666666664,RLTune-style,SoCC'25 RLTune,public artifact; runtime adaptation,Indirect,"portfolio over uncoded, replicated, static-coded, and rank-coded arms"
+network_stress,guarded_system_portfolio,best_safe-static,35,0.18229166666666666,Guarded portfolio,this paper,ours,Guarded,online guard over a system portfolio
+network_stress,guarded_system_portfolio,rank,19,0.09895833333333333,Guarded portfolio,this paper,ours,Guarded,online guard over a system portfolio

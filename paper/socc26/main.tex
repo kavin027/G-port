@@ -1,0 +1,66 @@
+\documentclass[sigconf,review,anonymous]{acmart}
+
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{booktabs}
+\usepackage{placeins}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,fit,positioning}
+
+\settopmatter{printacmref=true}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+
+\acmConference[SoCC '26]{ACM Symposium on Cloud Computing}{November 18--20, 2026}{Singapore}
+\acmYear{2026}
+\copyrightyear{2026}
+
+\title{Guarded First-Decodable-Time Scheduling for Sparse Flexible Coded Learning in Cloud-Native Worker Services}
+\subtitle{Research Full Paper}
+
+\begin{document}
+
+\input{sections/abstract}
+
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10003033.10003079.10003080</concept_id>
+       <concept_desc>Networks~Cloud computing</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10010520.10010521.10010537</concept_id>
+       <concept_desc>Computer systems organization~Distributed architectures</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10010147.10010257.10010258.10010259</concept_id>
+       <concept_desc>Computing methodologies~Distributed computing methodologies</concept_desc>
+       <concept_significance>300</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Networks~Cloud computing}
+\ccsdesc[300]{Computer systems organization~Distributed architectures}
+\ccsdesc[300]{Computing methodologies~Distributed computing methodologies}
+
+\keywords{coded computing, distributed learning, straggler mitigation, cloud scheduling}
+
+\maketitle
+
+\input{sections/introduction}
+\input{sections/background}
+\input{sections/design}
+\input{sections/analysis}
+\input{sections/setup}
+\input{sections/evaluation}
+\input{sections/related_work}
+\input{sections/conclusion}
+
+\bibliographystyle{ACM-Reference-Format-order}
+\bibliography{references}
+
+\end{document}

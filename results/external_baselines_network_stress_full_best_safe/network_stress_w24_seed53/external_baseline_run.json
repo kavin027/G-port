@@ -1,0 +1,14 @@
+{
+  "external_mode": "network_stress",
+  "n_workers": 24,
+  "seed": 53,
+  "strategies": [
+    "original_sfcl_static",
+    "rltune_style_selector",
+    "sailor_style_heterogeneity_aware",
+    "guarded_system_portfolio",
+    "online_counter_guard_deadline_aware_sparse_flexible"
+  ],
+  "network_rtt_ms": 3.0,
+  "network_bandwidth_mbps": 250.0
+}

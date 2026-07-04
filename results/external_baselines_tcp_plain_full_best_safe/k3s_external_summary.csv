@@ -1,0 +1,1 @@
+external_mode,n_workers,strategy,mean_barrier_ms,p95_barrier_ms,mean_decode_ms,p95_decode_ms,mean_extra_compute,mean_rows_after_decode,decode_success_rate,mean_dispatch_ms,mean_cancel_ms,mean_network_response_mb,method,source,artifact,uses_first_decode_features,notes,gain_vs_original_percent

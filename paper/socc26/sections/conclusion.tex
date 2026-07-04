@@ -1,0 +1,10 @@
+\section{Conclusion}
+
+Fixed sparse-flexible codes define recovery paths; \textsc{G-port} decides which
+path becomes visible first.  It exposes decode-critical row pairs earlier when
+the guard predicts a prefix benefit and otherwise falls back to static placement.
+Across the worker-service experiments, mismatch creates an opportunity,
+first-decodable prefix reduction turns it into tail gain, and the guard avoids
+many overhead-dominated regimes.  K3s validates the TCP worker-service path;
+production scheduling, full recovery, and end-to-end sparse learning remain
+open.

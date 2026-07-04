@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180.0" height="430.0" viewBox="0 0 1180.0 430.0">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+          markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#111111"/>
+  </marker>
+</defs>
+<rect x="0" y="0" width="1180.0" height="430.0" fill="#ffffff"/>
+<g>
+<rect x="70.00" y="30.00" width="680.00" height="105.00" rx="10.00" ry="10.00" fill="none" stroke="#222222" stroke-width="2.00"/>
+<rect x="70.00" y="155.00" width="1050.00" height="215.00" rx="10.00" ry="10.00" fill="none" stroke="#222222" stroke-width="2.00"/>
+<rect x="95.00" y="72.00" width="155.00" height="52.00" rx="9.36" ry="9.36" fill="#fff2cc" stroke="#d79b00" stroke-width="2.00"/>
+<text x="172.50" y="103.60" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">data shards</text>
+<rect x="315.00" y="72.00" width="170.00" height="52.00" rx="9.36" ry="9.36" fill="#fff2cc" stroke="#d79b00" stroke-width="2.00"/>
+<text x="400.00" y="94.16" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">sparse-flexible</text>
+<text x="400.00" y="113.04" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">encoded rows</text>
+<rect x="550.00" y="72.00" width="170.00" height="52.00" rx="9.36" ry="9.36" fill="#fff2cc" stroke="#d79b00" stroke-width="2.00"/>
+<text x="635.00" y="94.16" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">fixed recovery</text>
+<text x="635.00" y="113.04" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">row sets</text>
+<rect x="95.00" y="235.00" width="160.00" height="58.00" rx="10.00" ry="10.00" fill="#dae8fc" stroke="#1f5fbf" stroke-width="2.00"/>
+<text x="175.00" y="260.16" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">row scores +</text>
+<text x="175.00" y="279.04" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">worker speeds</text>
+<rect x="310.00" y="235.00" width="150.00" height="58.00" rx="10.00" ry="10.00" fill="#f8cecc" stroke="#b85450" stroke-width="2.00"/>
+<text x="385.00" y="260.16" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">online guard</text>
+<text x="385.00" y="279.04" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">prefix tests</text>
+<rect x="540.00" y="235.00" width="145.00" height="58.00" rx="10.00" ry="10.00" fill="#d5e8d4" stroke="#2d8a34" stroke-width="2.00"/>
+<text x="612.50" y="260.16" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">row-pair</text>
+<text x="612.50" y="279.04" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">assignment</text>
+<rect x="760.00" y="195.00" width="125.00" height="43.00" rx="7.74" ry="7.74" fill="#f5f5f5" stroke="#333333" stroke-width="1.50"/>
+<text x="822.50" y="212.66" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">worker</text>
+<text x="822.50" y="231.54" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">service 1</text>
+<rect x="760.00" y="245.00" width="125.00" height="43.00" rx="7.74" ry="7.74" fill="#f5f5f5" stroke="#333333" stroke-width="1.50"/>
+<text x="822.50" y="262.66" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">worker</text>
+<text x="822.50" y="281.54" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">service 2</text>
+<rect x="760.00" y="295.00" width="125.00" height="43.00" rx="7.74" ry="7.74" fill="#f5f5f5" stroke="#333333" stroke-width="1.50" stroke-dasharray="7 5"/>
+<text x="822.50" y="312.66" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">worker</text>
+<text x="822.50" y="331.54" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">service n</text>
+<rect x="960.00" y="235.00" width="145.00" height="58.00" rx="10.00" ry="10.00" fill="#dae8fc" stroke="#1f5fbf" stroke-width="2.00"/>
+<text x="1032.50" y="260.16" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">exact span</text>
+<text x="1032.50" y="279.04" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">first-decode</text>
+<text x="510.00" y="185.60" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">Runtime scheduling</text>
+<text x="440.00" y="60.60" font-family="Georgia" font-size="16.0" font-weight="400" text-anchor="middle" fill="#111111">Code construction</text>
+</g>
+<g>
+<path d="M 250.00 98.00 L 315.00 98.00" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 485.00 98.00 L 550.00 98.00" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 255.00 264.00 L 310.00 264.00" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 460.00 264.00 L 540.00 264.00" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="516.96" y="242.00" width="46.08" height="22.00" fill="#ffffff" opacity="0.92"/>
+<text x="540.00" y="258.00" font-family="Georgia" font-size="16.0" text-anchor="middle" fill="#111111">enable</text>
+<path d="M 685.00 247.60 L 760.00 230.64" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 685.00 264.86 L 760.00 265.76" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 685.00 282.12 L 760.00 300.88" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 885.00 230.64 L 960.00 247.60" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 885.00 265.76 L 960.00 264.86" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 885.00 300.88 L 960.00 282.12" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<path d="M 635.00 124.00 L 635.00 180.00 L 1032.00 180.00 L 1032.33 235.00" fill="none" stroke="#111111" stroke-width="2.00" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow)"/>
+<rect x="966.72" y="158.00" width="130.56" height="22.00" fill="#ffffff" opacity="0.92"/>
+<text x="1032.00" y="174.00" font-family="Georgia" font-size="16.0" text-anchor="middle" fill="#111111">decodability test</text>
+<path d="M 1032.67 293.00 L 1033.00 350.00 L 390.00 350.00 L 386.69 293.00" fill="none" stroke="#000000" stroke-width="1.50" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<rect x="359.28" y="328.00" width="61.44" height="22.00" fill="#ffffff" opacity="0.92"/>
+<text x="390.00" y="344.00" font-family="Georgia" font-size="16.0" text-anchor="middle" fill="#111111">counters</text>
+<path d="M 387.69 235.00 L 390.00 210.00 L 175.00 210.00 L 175.00 235.00" fill="none" stroke="#000000" stroke-width="1.50" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" marker-end="url(#arrow)"/>
+<rect x="144.28" y="188.00" width="61.44" height="22.00" fill="#ffffff" opacity="0.92"/>
+<text x="175.00" y="204.00" font-family="Georgia" font-size="16.0" text-anchor="middle" fill="#111111">fallback</text>
+</g>
+</svg>

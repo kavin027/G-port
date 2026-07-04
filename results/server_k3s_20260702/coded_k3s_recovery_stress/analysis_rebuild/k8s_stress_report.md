@@ -1,0 +1,12 @@
+# K3s Stress Diagnostic
+
+This table is a diagnostic of the worker-service path, not a production recovery claim.
+
+| case             |   workers | strategy                                            |   n_seeds |   mean_barrier_ms |   p95_barrier_ms |   barrier_gain_vs_static_pct |   decode_success_rate |   worker_errors |   recoveries |   reissued_rows |   dispatch_ms |   cancel_ms | strategy_label         |
+|:-----------------|----------:|:----------------------------------------------------|----------:|------------------:|-----------------:|-----------------------------:|----------------------:|----------------:|-------------:|----------------:|--------------:|------------:|:-----------------------|
+| close_connection |        24 | guarded_system_portfolio                            |         2 |           12.7254 |          13.1902 |                    24.1527   |                     1 |               1 |     0.333333 |        0.333333 |      0.880008 |     4.36706 | Guarded portfolio      |
+| close_connection |        24 | online_counter_guard_deadline_aware_sparse_flexible |         2 |           16.7843 |          20.5916 |                     0.210234 |                     1 |               1 |     1        |        2        |      0.646426 |     5.70014 | Guarded deadline-aware |
+| close_connection |        24 | rank_aware_sparse_flexible                          |         2 |           15.7997 |          17.0443 |                     5.95112  |                     1 |               1 |     1        |        2        |      0.681468 |     5.80656 | Rank-aware             |
+| close_connection |        24 | sparse_flexible_static                              |         2 |           16.8167 |          20.6966 |                     0        |                     1 |               1 |     1        |        2        |      0.651458 |     5.71842 | Static sparse-flex     |
+| close_connection |        24 | speed_aware_uncoded                                 |         2 |           12.8888 |          13.5902 |                    23.1971   |                     1 |               1 |     0.333333 |        0.333333 |      0.887501 |     4.37914 | Speed-aware uncoded    |
+| close_connection |        24 | system_portfolio                                    |         2 |           12.6481 |          13.2019 |                    24.6478   |                     1 |               1 |     0.333333 |        0.333333 |      0.867006 |     4.33819 | Portfolio              |

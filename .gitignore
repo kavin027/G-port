@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Logs and temporary process output
+*.log
+*.tmp
+*.out
+*.err
+*.tgz
+*.tar.gz
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Local secrets
+.env
+*.pem
+*.key
+
+# Local experiment archives and extracted remote-result bundles
+remote_direct_tcp_port*_results/

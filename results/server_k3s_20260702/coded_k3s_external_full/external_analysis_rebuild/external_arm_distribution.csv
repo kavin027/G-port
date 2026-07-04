@@ -1,0 +1,19 @@
+external_mode,strategy,selected_arm,rounds,round_fraction,method,source,artifact,uses_first_decode_features,notes
+k3s,speed_aware_uncoded,fixed,192,1.0,speed_aware_uncoded,speed_aware_uncoded,speed_aware_uncoded,speed_aware_uncoded,speed_aware_uncoded
+k3s,speculative_replication,fixed,192,1.0,speculative_replication,speculative_replication,speculative_replication,speculative_replication,speculative_replication
+k3s,sparse_flexible_static,fixed,192,1.0,SparseFlexibleStatic,Sparse-flexible coded learning,same-runtime reimplementation,No,legacy static baseline name
+k3s,original_sfcl_static,fixed,192,1.0,Original-SFCL,Sparse-flexible coded learning,same-runtime reimplementation,No,static sparse-flexible placement
+k3s,worker_aware_sparse_flexible,fixed,192,1.0,worker_aware_sparse_flexible,worker_aware_sparse_flexible,worker_aware_sparse_flexible,worker_aware_sparse_flexible,worker_aware_sparse_flexible
+k3s,rank_aware_sparse_flexible,fixed,192,1.0,rank_aware_sparse_flexible,rank_aware_sparse_flexible,rank_aware_sparse_flexible,rank_aware_sparse_flexible,rank_aware_sparse_flexible
+k3s,deadline_aware_sparse_flexible,fixed,192,1.0,deadline_aware_sparse_flexible,deadline_aware_sparse_flexible,deadline_aware_sparse_flexible,deadline_aware_sparse_flexible,deadline_aware_sparse_flexible
+k3s,system_portfolio,fixed,192,1.0,system_portfolio,system_portfolio,system_portfolio,system_portfolio,system_portfolio
+k3s,guarded_system_portfolio,uncoded,110,0.5729166666666666,Guarded portfolio,this paper,ours,Guarded,online guard over a system portfolio
+k3s,guarded_system_portfolio,static-static,57,0.296875,Guarded portfolio,this paper,ours,Guarded,online guard over a system portfolio
+k3s,online_counter_guard_rank_aware_sparse_flexible,fixed,192,1.0,online_counter_guard_rank_aware_sparse_flexible,online_counter_guard_rank_aware_sparse_flexible,online_counter_guard_rank_aware_sparse_flexible,online_counter_guard_rank_aware_sparse_flexible,online_counter_guard_rank_aware_sparse_flexible
+k3s,online_counter_guard_deadline_aware_sparse_flexible,enable,53,0.2760416666666667,Guard-D,this paper,ours,Guarded,coded-only guard; static sparse-flexible fallback
+k3s,online_counter_guard_deadline_aware_sparse_flexible,fallback,139,0.7239583333333334,Guard-D,this paper,ours,Guarded,coded-only guard; static sparse-flexible fallback
+k3s,rltune_style_selector,spec,77,0.4010416666666667,RLTune-style,SoCC'25 RLTune,public artifact; runtime adaptation,Indirect,"portfolio over uncoded, replicated, static-coded, and rank-coded arms"
+k3s,rltune_style_selector,speed,111,0.578125,RLTune-style,SoCC'25 RLTune,public artifact; runtime adaptation,Indirect,"portfolio over uncoded, replicated, static-coded, and rank-coded arms"
+k3s,sailor_style_heterogeneity_aware,speed,192,1.0,Sailor-style,SOSP'25 Sailor,public artifact; runtime adaptation,No,heterogeneity-aware throughput and load model
+k3s,guarded_system_portfolio,rank,25,0.13020833333333334,Guarded portfolio,this paper,ours,Guarded,online guard over a system portfolio
+k3s,rltune_style_selector,original,4,0.020833333333333332,RLTune-style,SoCC'25 RLTune,public artifact; runtime adaptation,Indirect,"portfolio over uncoded, replicated, static-coded, and rank-coded arms"
