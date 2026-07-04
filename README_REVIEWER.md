@@ -3,6 +3,8 @@
 This is the short entry point for artifact reviewers.  The full command map is
 in `docs/socc_artifact_reproduction.md`.
 
+Anonymous review URL: `https://anonymous.4open.science/r/G-port-4FD5/`.
+
 ## What This Artifact Checks
 
 The paper's main claim is a runtime scheduling claim: fixed sparse-flexible

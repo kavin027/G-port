@@ -14,9 +14,12 @@ The smoke and replay paths below run without private servers.  A fresh K3s rerun
 requires a reviewer-provided three-node cluster with shared source and problem
 directories on all scheduled nodes.
 
+Anonymous review artifact:
+`https://anonymous.4open.science/r/G-port-4FD5/`.
+
 Public repository placeholder for the camera-ready version:
-`<GITHUB_URL_TO_BE_FILLED_AFTER_ACCEPTANCE>`.  The dual-anonymous review
-artifact must leave this placeholder unresolved.
+`<GITHUB_URL_TO_BE_FILLED_AFTER_ACCEPTANCE>`.  The dual-anonymous review paper
+should cite only the anonymous artifact URL above.
 
 ## Repository Layout
 

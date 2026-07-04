@@ -4,6 +4,9 @@ This appendix maps the paper claims to the submitted artifact commands.  The
 full command list and expected outputs are maintained in
 `docs/socc_artifact_reproduction.md`.
 
+Anonymous artifact URL:
+`https://anonymous.4open.science/r/G-port-4FD5/`.
+
 ## Anonymous Review Package Boundary
 
 The anonymous artifact package should contain the source, run scripts, compact
