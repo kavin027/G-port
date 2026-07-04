@@ -147,21 +147,22 @@ competitive at W8, but it loses the cross-policy fallback that protects
 
 \begin{table}[t]
   \centering
+  \setlength{\tabcolsep}{1.8pt}
   \caption{Figure~\ref{fig:guard-thresholds} settings.}
   \label{tab:guard-threshold-settings}
-  \begin{tabular}{@{}lrrrr@{}}
+  \begin{tabular}{@{}llrrrr@{}}
     \toprule
-    Label & theta-cv & theta-g & theta-K & theta-a \\
+    Label & Meaning & theta-cv & theta-g & theta-K & theta-a \\
     \midrule
-    cv- & 0.10 & 0.01 & 0 & 1 \\
-    def & 0.20 & 0.01 & 0 & 1 \\
-    cv+ & 0.35 & 0.01 & 0 & 1 \\
-    g0 & 0.20 & 0.00 & 0 & 1 \\
-    g+ & 0.20 & 0.03 & 0 & 1 \\
-    K- & 0.20 & 0.01 & -1 & 1 \\
-    K+ & 0.20 & 0.01 & 1 & 1 \\
-    a0 & 0.20 & 0.01 & 0 & 0 \\
-    a+ & 0.20 & 0.01 & 0 & 2 \\
+    cv- & lower cv gate & 0.10 & 0.01 & 0 & 1 \\
+    def & deployed default & 0.20 & 0.01 & 0 & 1 \\
+    cv+ & higher cv gate & 0.35 & 0.01 & 0 & 1 \\
+    g0 & zero gain gate & 0.20 & 0.00 & 0 & 1 \\
+    g+ & higher gain gate & 0.20 & 0.03 & 0 & 1 \\
+    K- & stricter prefix & 0.20 & 0.01 & -1 & 1 \\
+    K+ & looser prefix & 0.20 & 0.01 & 1 & 1 \\
+    a0 & no slack & 0.20 & 0.01 & 0 & 0 \\
+    a+ & looser slack & 0.20 & 0.01 & 0 & 2 \\
     \bottomrule
   \end{tabular}
 \end{table}

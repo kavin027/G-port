@@ -679,7 +679,7 @@ def write_threshold_sensitivity_figure(
     ax.set_ylabel("Decision rate (%)", fontsize=9)
     ax.set_ylim(bottom=0)
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=0, ha="center", fontsize=10)
+    ax.set_xticklabels(labels, rotation=0, ha="center", fontsize=9)
     ax.tick_params(axis="y", labelsize=9)
     ax.grid(axis="y", alpha=0.25, linewidth=0.5)
 
