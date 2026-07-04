@@ -2,9 +2,10 @@
 Heterogeneous cloud workers make synchronous distributed learning vulnerable to
 long-tail iteration latency.  Sparse flexible codes reduce redundant work, but
 they still leave a systems question open: which recoverable row set becomes
-visible first at runtime.  We present \textsc{G-port}, a guarded worker-service
-controller whose coded arm keeps the sparse-flexible code fixed while changing
-the runtime order in which recoverable row sets are exposed.  It combines
+visible first at runtime.  We present \textsc{G-port} (Guarded Prefix-Oriented
+Runtime), a worker-service controller whose coded arm keeps the
+sparse-flexible code fixed while changing the runtime order in which
+recoverable row sets are exposed.  It combines
 target-specific row scores, worker speed and delay estimates, deadline-aware
 matching, exact online decodability checks, and a fixed guard that enables the
 adaptive arm only when predicted prefix savings exceed overhead; otherwise it

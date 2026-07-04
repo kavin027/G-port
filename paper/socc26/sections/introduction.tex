@@ -76,13 +76,16 @@ reduction is large enough to pay for scheduling, extra-work, communication, and
 cancellation overhead.
 
 We present \textsc{G-port}, a guarded worker-service controller for sparse
-flexible coded learning.  Its coded arm assigns a target-specific importance
-score to encoded rows, aggregates scores over row pairs, maps decode-critical
-pairs to workers predicted to finish early, and runs the same row-span test as
-the decoder to predict the first-decodable prefix.  A fixed online guard enables
-the adaptive arm only when worker-speed mismatch, predicted first-decode gain,
-prefix growth, and rows-after-decode counters pass; otherwise \textsc{G-port}
-falls back to static sparse-flexible placement.  The design keeps the
+flexible coded learning.  The name abbreviates Guarded Prefix-Oriented
+Runtime: the controller keeps the code fixed and changes which row prefix is
+exposed first.  Its coded arm assigns a target-specific importance score to
+encoded rows, aggregates scores over row pairs, maps decode-critical pairs to
+workers predicted to finish early, and runs the same row-span test as the
+decoder to predict the first-decodable prefix.  A fixed online guard
+enables the adaptive arm only when worker-speed mismatch, predicted
+first-decode gain, prefix growth, and
+rows-after-decode counters pass; otherwise \textsc{G-port} falls back to static
+sparse-flexible placement.  The design keeps the
 sparse-flexible code fixed and focuses on the worker-service runtime that
 controls row exposure order.  Coded-only and alternative-fallback variants are
 treated as ablations, not separate proposed systems.

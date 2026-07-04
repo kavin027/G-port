@@ -33,7 +33,7 @@ Sia~\cite{subramanya2023sia} optimize placement, fairness, migration, or
 resource scaling for distributed training jobs.  RLTune~\cite{dongare2025rltune}
 and Cuckoo~\cite{zhang2025cuckoo} continue this line with recent scheduling
 policies for heterogeneous cloud and GPU-cluster workloads.  These systems
-choose where and when jobs or training tasks run.  G-PORT works at a lower
+choose where and when jobs or training tasks run.  \textsc{G-port} works at a lower
 granularity inside one coded-learning iteration: it assumes the worker pool and
 code matrix are given, then orders encoded row exposure so that the first
 recoverable prefix arrives earlier.
@@ -58,6 +58,6 @@ and cloning~\cite{ananthanarayanan2013dolly} to mask slow tasks.  These
 mechanisms treat completed task outputs as independently useful and often pay
 extra work to reduce tail latency.  Sparse-flexible coded learning changes the
 runtime objective: the master can stop only when the completed encoded rows
-span a valid recovery set.  G-PORT therefore complements speculation and
+span a valid recovery set.  \textsc{G-port} therefore complements speculation and
 cluster-level scheduling by making the redundancy already present in the code
 more visible to the decoder before adding more work.
