@@ -643,17 +643,21 @@ def write_threshold_sensitivity_figure(
         return
     sub["order"] = sub["setting"].apply(lambda x: order.index(x) if x in order else 99)
     sub = sub.sort_values("order")
-    labels = [
-        str(label)
-        .replace(" $\\theta_{cv}$", "\n$\\theta_{cv}$")
-        .replace(" $\\theta_g$", "\n$\\theta_g$")
-        .replace(" $\\theta_K$", "\n$\\theta_K$")
-        .replace(" $\\theta_a$", "\n$\\theta_a$")
-        for label in sub["setting"]
-    ]
+    label_map = {
+        "low $\\theta_{cv}$": "low\ncv",
+        "default": "default",
+        "high $\\theta_{cv}$": "high\ncv",
+        "zero $\\theta_g$": "zero\ng",
+        "high $\\theta_g$": "high\ng",
+        "strict $\\theta_K$": "strict\nK",
+        "loose $\\theta_K$": "loose\nK",
+        "strict $\\theta_a$": "strict\na",
+        "loose $\\theta_a$": "loose\na",
+    }
+    labels = [label_map.get(str(label), str(label).replace(" ", "\n")) for label in sub["setting"]]
     x = np.arange(len(sub))
     width = 0.34
-    fig, ax = plt.subplots(figsize=(3.35, 2.25))
+    fig, ax = plt.subplots(figsize=(3.35, 2.70))
     ax.bar(
         x - width / 2,
         100.0 * sub["enable_rate"],
@@ -672,11 +676,11 @@ def write_threshold_sensitivity_figure(
         edgecolor="black",
         linewidth=0.25,
     )
-    ax.set_ylabel("Decision rate (%)")
+    ax.set_ylabel("Decision rate (%)", fontsize=9)
     ax.set_ylim(bottom=0)
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=0, ha="center", fontsize=6.8)
-    ax.tick_params(axis="y", labelsize=7.5)
+    ax.set_xticklabels(labels, rotation=0, ha="center", fontsize=9)
+    ax.tick_params(axis="y", labelsize=9)
     ax.grid(axis="y", alpha=0.25, linewidth=0.5)
 
     ax2 = ax.twinx()
@@ -689,8 +693,8 @@ def write_threshold_sensitivity_figure(
         linewidth=1.1,
         label="Barrier gain",
     )
-    ax2.set_ylabel("Barrier gain (%)")
-    ax2.tick_params(axis="y", labelsize=7.5)
+    ax2.set_ylabel("Barrier gain (%)", fontsize=9)
+    ax2.tick_params(axis="y", labelsize=9)
     ax2.axhline(0.0, color="#777777", linewidth=0.5, linestyle="--")
 
     handles1, labels1 = ax.get_legend_handles_labels()
@@ -702,11 +706,11 @@ def write_threshold_sensitivity_figure(
         bbox_to_anchor=(0.5, 1.20),
         ncol=3,
         frameon=False,
-        fontsize=7.0,
+        fontsize=9,
         handlelength=1.2,
-        columnspacing=0.8,
+        columnspacing=0.7,
     )
-    fig.tight_layout(pad=0.25)
+    fig.tight_layout(pad=0.45)
 
     destinations = [out_dir]
     if paper_figures_dir is not None:

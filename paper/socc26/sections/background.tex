@@ -107,7 +107,7 @@ communication, and cancellation costs.
 \begin{figure}[t]
   \centering
   \begin{tikzpicture}[
-      font=\footnotesize,
+      font=\normalsize,
       row/.style={draw, rounded corners=1pt, align=center,
         minimum width=0.58cm, minimum height=0.40cm, inner sep=1pt},
       crit/.style={row, fill=green!11, draw=green!50!black, very thick},
@@ -116,13 +116,13 @@ communication, and cancellation costs.
         align=center, inner sep=2pt, text width=1.55cm},
       note/.style={draw, rounded corners=1.5pt, align=center, inner sep=2pt,
         fill=orange!7, draw=orange!60!black},
-      head/.style={font=\scriptsize\bfseries, align=center},
+      head/.style={font=\bfseries, align=center},
       sep/.style={gray!45, line width=0.25pt}
     ]
     \node[note, text width=7.0cm] at (3.45,0)
       {Fixed code unchanged: decode when both green rows $r_2$ and $r_5$ have arrived};
 
-    \node[head, anchor=east, text width=1.15cm] at (0.72,-0.82) {completion\\prefix};
+    \node[head, anchor=east, text width=1.15cm] at (0.72,-0.82) {prefix};
     \node[head] at (1.35,-0.82) {\#1};
     \node[head] at (2.12,-0.82) {\#2};
     \node[head] at (2.89,-0.82) {\#3};

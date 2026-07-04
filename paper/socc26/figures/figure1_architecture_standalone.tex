@@ -5,7 +5,7 @@
 
 \begin{document}
 \begin{tikzpicture}[
-  font=\footnotesize,
+  font=\normalsize,
   x=1mm,
   y=1mm,
   stage/.style={draw, rounded corners=2pt, very thick, align=center,
@@ -38,8 +38,8 @@
   \draw[arrow] (shards) -- (rows);
   \draw[arrow] (rows) -- (sets);
   \draw[arrow] (features) -- (guard);
-  \draw[arrow] (guard) -- node[above, font=\scriptsize] {enable} (assign);
-  \draw[weakarrow] (guard.south) |- ++(8,-7) -| node[pos=0.25, below, font=\scriptsize] {fallback}
+  \draw[arrow] (guard) -- node[above] {enable} (assign);
+  \draw[weakarrow] (guard.south) |- ++(8,-7) -| node[pos=0.25, below] {fallback}
     (features.south);
   \draw[arrow] (assign.east) -- (w1.west);
   \draw[arrow] (assign.east) -- (w2.west);
@@ -47,9 +47,9 @@
   \draw[arrow] (w1.east) -- (monitor.west);
   \draw[arrow] (w2.east) -- (monitor.west);
   \draw[arrow] (w3.east) -- (monitor.west);
-  \draw[arrow] (sets.south) |- node[pos=0.25, right, font=\scriptsize] {decodability test}
+  \draw[arrow] (sets.south) |- node[pos=0.25, right] {decodability test}
     (monitor.north);
-  \draw[weakarrow] (monitor.south) |- node[pos=0.25, right, font=\scriptsize] {counters}
+  \draw[weakarrow] (monitor.south) |- node[pos=0.25, right] {counters}
     (guard.south);
 \end{tikzpicture}
 \end{document}
